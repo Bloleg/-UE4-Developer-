@@ -1,0 +1,45 @@
+// Test1.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+        /*======================
+        "din" = > "((("
+        "recede" = > "()()()"
+        "Success" = > ")())())"
+        "(( @" = > "))(("
+        =======================*/
+    
+    string word = "(( @";
+    
+    string str = "";
+   
+    //string word = "";
+    //cin >> word;
+       
+    transform(word.begin(), word.end(), word.begin(), ::tolower);
+       
+    for (int i = 0; i < word.length(); i++) {
+        if (word.find_last_of(word.at(i)) != (word.find(word.at(i)))) {
+            str += ")";
+        }
+        else 
+            str += "(";
+    }
+
+    cout << str <<endl;
+    
+
+    return 0;
+
+
+}
+
+
+
